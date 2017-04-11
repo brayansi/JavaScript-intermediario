@@ -1,0 +1,41 @@
+<script>
+    /* returna a soma realizada na Function;
+    var soma = new Function(['a','b'], 'return a+b;');
+    console.log(soma(1,2));        
+    
+    */
+    /*
+
+    var empresa = new Object();
+    empresa[0] = 'T';
+    empresa[1] = 'r';
+    empresa[2] = 'e';
+    empresa[3] = 'i';
+    empresa[4] = 'n';
+    empresa[5] = 'a';
+    empresa[6] = 'W';
+    empresa[7] = 'e';
+    empresa[8] = 'b';
+    console.log(empresa)
+
+    var empresaString = new String('TreinaWeb');
+    console.log(empresaString);
+    
+    */  
+    
+
+    var Carro = function (){
+      this.cor = 'branco';
+    }
+
+    var carro = new Carro();
+    console.log(carro.constructor);
+    
+    var CopiaDoConstrutor = carro.constructor;
+    var carro2 = new CopiaDoConstrutor();
+    
+    console.log(carro2 instanceof Carro);
+
+  
+
+</script>
