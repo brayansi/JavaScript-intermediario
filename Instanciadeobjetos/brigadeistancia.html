@@ -18,6 +18,8 @@
     var canarinho = new passaro(18);
     var palio = new carro(1994); 
 
+    var paulo = brayan;// brayan e paulo referenciam o mesmo objeto;
+
     console.log(brayan);
     console.log(canarinho);
     console.log(palio);
@@ -38,6 +40,10 @@
        configurable:false,
        value: 'amerelo',
     });
+
+
+    delete palio.cor;//noa delete a cor do carro pois o confugurable foi definido como falso;
+    delete brayan.nome;//deleta pois a propriedade nao tem parametros;
 
 
 
