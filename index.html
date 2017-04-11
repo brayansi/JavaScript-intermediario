@@ -1,0 +1,49 @@
+<script type="text/javascript">
+
+/*
+var Carro = function(nome){
+	this.nome = nome;
+}
+
+var carro1 = new Carro('Gol');
+var carro2 = new Carro('Palio');
+
+console.log(carro1.nome);
+console.log(carro2.nome);
+*/
+
+/*
+var obj = new Object();
+
+obj.nome = 'JavaScript';
+
+console.log(obj);
+console.log(typeof obj);
+*/
+
+
+var obj = {
+	nome:'JavaScript'
+};
+
+Object.defineProperty(obj,'idade',{
+	configurable: false,
+	enumerable: true,
+	value: 17,
+	writable: false
+});
+
+delete obj.idade;
+obj.idade = 18;
+
+for(chaves in obj){
+	console.log(chaves);
+}
+
+console.log(obj);
+console.log(typeof obj);
+
+
+
+
+</script>
