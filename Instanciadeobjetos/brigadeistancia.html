@@ -1,0 +1,47 @@
+<script>
+    //objetos
+    var pessoa = function(nome, idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    var passaro = function(tamanho){
+        this.tamanho = tamanho;
+    }
+
+    var carro = function(ano){
+        this.ano = ano;
+    }
+
+    //instancia os objetos
+    var brayan = new pessoa('brayan',18);
+    var canarinho = new passaro(18);
+    var palio = new carro(1994); 
+
+    console.log(brayan);
+    console.log(canarinho);
+    console.log(palio);
+
+    /*
+    cria mais propriedades para os objetos
+    
+    canarinho.cor='amarelo';
+    palio.cor='azul';
+    */
+
+    //cria mais propriedades para os objetos, porem com difinições;
+    Object.defineProperty(passaro,'cor',{
+        configurable:false,
+        value:'preto',
+    });//configurable: nao permite que a propriedade seja deletada
+    Object.defineProperty(palio,'cor',{
+       configurable:false,
+       value: 'amerelo',
+    });
+
+
+
+    console.log(brayan);
+    console.log(canarinho);
+    console.log(palio);
+</script>

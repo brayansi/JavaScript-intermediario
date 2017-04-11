@@ -1,0 +1,53 @@
+<script type="text/javascript">
+	
+	/*
+	
+	//objeto carro
+
+	var carro = function(nome) {
+	 	this.nome = nome;
+	}
+   
+	//intancia o objeto carro
+	
+	var carro1 = new carro ("gol"); 
+	var carro2 = new carro ("palio")
+
+	console.log(carro1.nome);
+	console.log(carro2.nome);
+
+	//criar um novo objeto
+
+	var obj = new Object();
+	obj.nome= 'javascript';
+
+	console.log(obj);
+	console.log(typeof obj);
+
+
+	*/
+	//objeto literal
+	//obj inico, nao pode ser replicado
+	var obj = {
+		nome:'javascript'
+	};
+
+	Object.defineProperties	(obj, 'idade',{
+		configurable: false, // nao pode ser deletada
+		enumerable: false,// nao eh encontrada pelo for in 
+		value: 17, // define o valor da variavel
+		writable: false, // o valor nao pode ser alterado
+	});
+
+	delete obj.idade;
+	Obj.idade =18;
+	 for (chaves in obj){
+		 console.log(chaves); //retorna as variavel do obj
+	 }
+
+
+
+	console.log(obj);
+	console.log(typeof obj);
+	
+</script>
