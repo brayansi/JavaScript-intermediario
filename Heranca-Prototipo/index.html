@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    /*
+    var habilidades ={
+        falar:function (msg){
+            console.log(msg);
+        }
+    }
+
+
+    var pessoa={
+        __proto__: habilidades,
+    }
+
+    pessoa.falar('Treinando');
+    
+    */
+    
+    var Habilidades = function(){
+        this.falar = function(msg){
+            console.log(msg);
+        }
+    }
+
+    var Pessoa = function(){
+
+    }
+
+    Pessoa.prototype = new Habilidades;
+
+    var pessoa = new Pessoa();
+
+    Pessoa.falar('Treinando');
+
+
+
+    </script>

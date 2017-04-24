@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    var Robo = function(){
+        var material='ferro';
+        var cor='preto'
+        var tamnho;
+
+        this.Simples = function(tamanho){
+            this.tamanho = tamanho;
+            console.log(material,cor,tamanho);
+        }
+          this.Avancado = function(material,cor,tamanho){
+            this.tamanho = tamanho;
+            this.cor = cor;
+            this.material = material;
+
+            console.log(material,cor,tamanho);
+        }
+        
+    }
+
+    var prototipo = function(nome){
+        this.nome = nome;
+    }
+    prototipo.prototype = new Robo;
+
+    //robo simples
+    console.log('robo Simples');
+    var Robo1 = new prototipo('x54');
+    Robo1.Simples('1.10');
+    console.log(Robo1);
+
+    //robo Avancado
+    console.log('robo Avancado');
+    var Robo2 = new prototipo('x102');
+    Robo2.Avancado('Bronze','Branco','1.90');
+    console.log(Robo2);
+
+
+</script>
