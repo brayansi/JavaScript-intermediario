@@ -1,0 +1,18 @@
+<script type="text/javascript">
+
+var repetirFuncao = function(repeticao, tempo, funcao){
+	setTimeout(function(){
+		funcao(repeticao);
+		if(repeticao > 1){
+			repetirFuncao(--repeticao, tempo, funcao);
+		}
+	}, tempo);
+}
+
+var imprimir = function(repeticao){
+	document.write(repeticao+' Brayan');
+};
+
+repetirFuncao(5, 1000, imprimir);
+
+</script>

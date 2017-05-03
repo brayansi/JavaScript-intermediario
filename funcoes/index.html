@@ -1,3 +1,65 @@
 <script type="text/javascript">
+/*
+//funções
+        var gerarRelatorio = function(saida){
+            //logica para buscar dados
+            var dados= 'Brayan Santos'
+            saida(dados);
+        }
+
+
+
+        var imprimirNoTerminal= function(dados){
+            console.log(dados);
+        }
+        
+        var imprimirNaTela= function(dados){
+            document.write(dados);
+        }
+
+
+        gerarRelatorio(function(dados){
+            alert(dados);
+        })
+
+        
+        gerarRelatorio(imprimirNaTela);
+        gerarRelatorio(imprimirNoTerminal);
+
+*/
+            //Escopo de uma função
+            //escopo global windown (nao e intereçante guardar variaves no escopo global)
+       
+/*
+        console.log(window.cor); //erro pois a variavel cor nao está mais no ecopo global R:andefined 
+        
+        var gerarRelatorio = function(saida){
+            var cor = 'varmelha';
+            var saida = function(dados){
+                console.log(cor);
+                console.log(dados);
+            }
+            saida('treinaweb');
+        }
+
+        gerarRelatorio();
+*/
+//call & apply
+        var falar= function(){
+            console.log(this.nome);
+        }
+
+        var pessoa = {
+            nome:'André'
+        }
+        var pessoa2={
+            nome:'Brayan'
+        }
+
+
+        falar.apply(pessoa);
+        falar.call(pessoa2);
+        
+
 
 </script>
