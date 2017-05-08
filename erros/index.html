@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    //try,catch e throw
+    /* 
+    try{
+      var metodo1 = function(){
+        var metodo2 = function(){
+          throw new Error('Erro na execucao do metodo2');
+        }
+        metodo2();
+      }
+      metodo1();
+    }catch(e){
+      console.log(e.message);
+    }
+    */
+
+    var tanque = 999;
+    var abastecer = function () {
+        if (tanque < 1000) {
+            tanque++;
+        } else {
+            throw new Error('tanque ja esta cheio');
+        }
+    }
+
+    try {
+        abastecer();
+        abastecer();
+    } catch (e) {
+        alert(e.message);
+    }
+
+</script>

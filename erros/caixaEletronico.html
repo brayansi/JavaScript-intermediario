@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    
+    var caixaEletronico = {
+        saldo : 0,
+        limite : 1000,
+
+        deposito: function(valor){
+            this.saldo += valor;
+        },
+        
+        saque:function(valor){
+            if(valor <= this.limite){
+                if(this.saldo >=valor ){
+                    this.saldo -= valor;
+                }else{
+                    throw new Error ('saldo insuficiente');
+                }
+            }else{
+                throw new Error('limite excedido ');
+            }
+        }
+    }
+
+    try{
+        caixaEletronico.deposito(1100);//realiza o deposito
+        console.log('Deposito realizado no valor:' + caixaEletronico.saldo);
+        caixaEletronico.saque(500);//saca 500
+        console.log('Saldo Atual:' + caixaEletronico.saldo);
+        //caixa.saque(1050);//Erro: limite excedido
+        caixaEletronico.saque(900); //Erro: Saldo insifiente
+    }catch(e){
+        console.log(e);
+    }
+</script>
