@@ -1,0 +1,65 @@
+<script type="text/javascript">
+	var agenda = {
+		nome: 'Contatos Pessoas',
+		contatos: [],
+		adicionar: function (contato) {
+			var regexEmail = /^(\w+[._-]?)+@\w+.(\w+[.]?)+$/;
+			var regexTelefone = /^\d{5}-\d{4}$/;
+			if (regexEmail.test(contato.email)&&regexTelefone.test(contato.telefone)) {
+				if (contato.nome && contato.telefone && contato.email) {
+					this.contatos.push(contato);
+				} else {
+					throw new Error ('Não pode ser add');
+				}
+			} else {
+				throw new Error ('telefone ou email fora do padrão');
+			}
+		},
+		remover: function (nome) {
+			for (indice in this.contatos) {
+				var contato = this.contatos[indice];
+				if (contato.nome === nome) {
+					this.contatos.splice(indice, 1);
+					return true;
+				}
+			}
+			return false;
+		},
+		listar: function () {
+			for (indice in this.contatos) {
+				var contato = this.contatos[indice];
+				if (contato.pagina) {
+					console.log(contato.nome + ' ' + contato.telefone + ' ' + contato.email + ' ' + contato.pagina);
+				} else {
+					console.log(contato.nome + ' ' + contato.telefone + ' ' + contato.email);
+				}
+			}
+		}
+	};
+
+	try {
+		agenda.adicionar({
+			nome: 'brayan',
+			telefone: '98428-1354',
+			email: 'ailtone@email.com',
+			pagina: 'www.ailton.com.br'
+		});
+
+		agenda.adicionar({
+			nome: 'Sabrina',
+			telefone: '9842-1354',
+			email: 'Sabrina.com',
+			pagina: 'www.Sabrina.com.br'
+		});
+
+	
+
+		
+
+	} catch (e) {
+		alert(e.message);
+	}
+
+	agenda.listar();
+
+</script>
