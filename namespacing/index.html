@@ -1,0 +1,64 @@
+<script type="text/javascript">
+    var nome = 'Brayan';
+
+    console.log(window.nome);
+
+    (function () {//ecopo de uma função anonima
+        var nome = 'Andre';
+        console.log(nome);
+    })()
+
+    //obj litera
+
+    var curso = {
+        nome: 'javascript'
+    }
+    var pessoa = {
+        nome: 'Brayan Santos'
+    }
+
+    console.log(curso.nome);
+    console.log(pessoa.nome);
+
+
+    //forma padrão
+    var minhaAplicacao = (function () {
+        var foo = function () {
+        }
+
+        return {
+        }
+    })();
+    //object literal notation
+
+    var minhaAplicacao = {
+        models: {},
+        views: {
+            pages: {}
+        },
+        collections: {}
+    }
+    //outra forma 
+
+    var minhaAplicacao = {};
+
+    minhaAplicacao.models={ };
+
+    minhaAplicacao.views={
+        pages: { }
+    };
+
+    minhaAplicacao.collections={ };
+
+    //verifica sua existencia
+
+    var minhaAplicacao1 ={foo: function(){
+        alert(foo);
+    }};
+
+    if(!minhaAplicacao1.foo){
+        minhaAplicacao1.foo = {name: 'brayan'};
+    }
+    console.log(minhaAplicacao1.foo);
+
+</script>
