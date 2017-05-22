@@ -1,0 +1,26 @@
+<script type="text/javascript">
+
+//local storge : salva os dados local, os dados nao se perdem qunado o navegador sao fechados;
+//setion storge : salva enquanto o navegador estiver aberto;
+
+localStorage.nome1 = 'Brayan';
+localStorage.nome2 = 'Brayan';
+localStorage.nome3 = 'Brayan';
+localStorage.nome4 = 'Brayan';
+
+var curso = {
+    nome:'javascript',
+    nivel: 'intermediario'
+}
+localStorage.curso = JSON.stringify(curso); // converte o obj para string
+var cursoRecupera = JSON.parse(localStorage.curso); // converte uma string para obj
+
+
+//localStorage.clear(); apaga tudo
+for(var i=0; i<localStorage.length; i++){
+    console.log(localStorage.getItem(localStorage.key(i)));
+}
+
+
+
+</script>

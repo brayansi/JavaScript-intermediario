@@ -42,22 +42,24 @@
 
     var minhaAplicacao = {};
 
-    minhaAplicacao.models={ };
+    minhaAplicacao.models = {};
 
-    minhaAplicacao.views={
-        pages: { }
+    minhaAplicacao.views = {
+        pages: {}
     };
 
-    minhaAplicacao.collections={ };
+    minhaAplicacao.collections = {};
 
     //verifica sua existencia
 
-    var minhaAplicacao1 ={foo: function(){
-        alert(foo);
-    }};
+    var minhaAplicacao1 = {
+        foo: function () {
+            alert(foo);
+        }
+    };
 
-    if(!minhaAplicacao1.foo){
-        minhaAplicacao1.foo = {name: 'brayan'};
+    if (!minhaAplicacao1.foo) {
+        minhaAplicacao1.foo = { name: 'brayan' };
     }
     console.log(minhaAplicacao1.foo);
 
