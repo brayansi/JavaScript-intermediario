@@ -1,0 +1,12 @@
+body{
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+}
+
+#desenho{
+    background-color: #ffffff;
+    width: 150;
+    height: 150;
+    border: 1px solid #000000;
+}
