@@ -1,19 +1,19 @@
-//submit
+$(document).ready(function(){
+	var $busca = $('#txtBusca');
+	var nomes = $('.nome');
 
-var submit = document.forms[0];
-submit.addEventListener('submit',function busca(event){
-    event.preventDefault();
-    buscar();    
-})
-
-
-function buscar() {
-    var cadastro=["brayan", "bruno", "lucas"];
-    var txt = window.document.getElementById("busca");
-    console.log(txt.value);
-    for(x=0; x < cadastro.length; x++){
-        if(cadastro[1]==txt.value){
-            alert(true);
-        }
-    }
-}
+	$busca.on('keyup', function(){
+		for(var i=0; i<nomes.length; i++){
+			var $nome = $(nomes[i]);
+			var nome = $nome.text();
+			var nomeDigitado = $('#txtBusca').val();
+			if(nome.substring(0,nomeDigitado.length) !== nomeDigitado){
+				$nome.hide();
+			}else if(!nomeDigitado){
+				$nome.show();
+			}else{
+				$nome.show();
+			}
+		}
+	});
+});
