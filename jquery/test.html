@@ -1,0 +1,18 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<div id="content">
+  <p>Jose</p>
+  <p id="test">Rafael</p>
+  <p>Marcos</p>
+</div>
+<style type="text/css" media="screen">
+.borda-inferior-solida{
+  border-bottom: solid 1px #c3c3c3;
+  padding:5px;
+}
+</style>
+<script>
+  var nomes = $('p')
+  nomes.attr({
+    class:'borda-inferior-solida'
+  });
+</script>
