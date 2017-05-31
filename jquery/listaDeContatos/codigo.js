@@ -38,6 +38,11 @@ $(document).ready(function(){
 		}
 	};
 
+	$('#frmCadastro').submit(function(event){
+		event.preventDefault();
+		alert('test');
+	});
+
 	var criarNovoContato = function(contato){
 		var cores = [
 			'caixa-verde',
