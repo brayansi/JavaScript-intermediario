@@ -87,6 +87,5 @@ $(document).ready(function(){
 	}
 
 	agenda.listar();
-	agenda.salvar();
 
 });
