@@ -8,6 +8,7 @@ $(document).ready(function(){
 			var telefoneValido = /^\d{5}-\d{4}$/; // 98765-8765
 			if(contato.nome && telefoneValido.test(contato.telefone) && emailValido.test(contato.email)){
 				this.contatos.push(contato);
+				this.salvar();
 			}else{
 				throw new Error('Erro ao adicionar o novo contato.');
 			}
@@ -40,7 +41,24 @@ $(document).ready(function(){
 
 	$('#frmCadastro').submit(function(event){
 		event.preventDefault();
-		alert('test');
+		var contato = {
+			nome: $('#txtNome').val(),
+			email: $('#txtEmail').val(),
+			telefone: $('#txtTelefone').val(),
+			pagina: $('#txtPagina').val(),
+	}
+
+		try{
+			agenda.adicionar(contato);
+			criarNovoContato(contato);
+		}catch(e){
+			alert(e.message);
+		}
+		
+		$('#txtNome').val('');
+		$('#txtEmail').val('');
+		$('#txtTelefone').val('');
+		$('#txtPagina').val('');
 	});
 
 	var criarNovoContato = function(contato){
