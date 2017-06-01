@@ -7,6 +7,12 @@ $(document).ready(function(){
 			var emailValido = /^(\w+[._-]?)+@\w+(\w+[.]?)+$/; //ailton.santos@email.com
 			var telefoneValido = /^\d{5}-\d{4}$/; // 98765-8765
 			if(contato.nome && telefoneValido.test(contato.telefone) && emailValido.test(contato.email)){
+				for(indice in this.contatos){
+				var contatointeracao = this.contatos[indice];
+				if(contatointeracao.telefone === contato.telefone){
+					throw new Error('o telefone '+ contato.telefone +' ja existe');
+				}
+			}
 				this.contatos.push(contato);
 				this.salvar();
 			}else{
