@@ -13,11 +13,12 @@ $(document).ready(function(){
 				throw new Error('Erro ao adicionar o novo contato.');
 			}
 		},
-		remover: function(nome){
+		remover: function(telefone){
 			for(indice in this.contatos){
 				var contato = this.contatos[indice];
-				if(contato.nome === nome){
+				if(contato.telefone === telefone){
 					this.contatos.splice(indice,1);
+					this.salvar();
 					return true;
 				}
 			}
@@ -71,18 +72,32 @@ $(document).ready(function(){
 
 		var cor = cores[Math.floor(Math.random() * cores.length)];
 
-		var $caixa = $('<div>',{class:'caixa-contato '+cor});
+		var $caixa = $('<div>',{class:'caixa-contato '+cor, id:contato.telefone});
 		var $nome = $('<h3>',{text:contato.nome});
 		var $email = $('<p>',{text:contato.email});
 		var $telefone = $('<p>',{text:contato.telefone});
 		var $pagina = $('<p>',{text:contato.pagina});
 		var $contatos = $('#contatos');
+		var $deletar = $("<span>",{class:'btnDeletar',text:'Deletar','data-telefone':contato.telefone})
+
+		$deletar.click(function(event){
+			var $btn = $(event.target);
+			var telefone = $btn.data('telefone');
+			var $caixa = $('#'.concat(telefone));
+			try{
+				agenda.remover(telefone);
+				$caixa.remove();
+			}catch(e){
+				alert(e.message);
+			}
+			
+		})
 
 		$caixa.append($nome);
 		$caixa.append($email);
 		$caixa.append($telefone);
 		$caixa.append($pagina);
-
+		$caixa.append($deletar);
 		$contatos.append($caixa);
 	}
 
