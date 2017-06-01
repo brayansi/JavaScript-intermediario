@@ -30,6 +30,29 @@ $(document).ready(function () {
 			}
 			throw new Error('Erro ao remover usuario');
 		},
+
+		atualizar: function (telefoneAntigo, contatoAtualizado) {
+			var indiceAtualixado;
+
+			for (indice in this.contatos) {
+				var contato = this.contatos[indice];
+				if (contato.telefone === telefoneAntigo) {
+					indiceAtualixado = indice;
+				} else if (contato.telefone === contatoAtualizado) {
+					throw new Error('Erro ao adicionar o novo contato.');
+				}
+			}
+
+			if (indiceAtualixado) {
+				this.contatos[indiceAtualixado].nome = contatoAtualizado.nome;
+				this.contatos[indiceAtualixado].email = contatoAtualizado.email;
+				this.contatos[indiceAtualixado].telefone = contatoAtualizado.telefone;
+				this.contatos[indiceAtualixado].pagina = contatoAtualizado.pagina;
+				return true;
+			}
+			throw new Error('Contato nao encontrado');
+
+		},
 		listar: function () {
 			this.pegarContatosSalvos();
 			for (indice in this.contatos) {
@@ -54,19 +77,46 @@ $(document).ready(function () {
 			telefone: $('#txtTelefone').val(),
 			pagina: $('#txtPagina').val(),
 		}
-
-		try {
-			agenda.adicionar(contato);
-			criarNovoContato(contato);
-		} catch (e) {
-			alert(e.message);
+		if ($('#btnSubmit').val() === 'Cadastrar') {
+			try {
+				agenda.adicionar(contato);
+				criarNovoContato(contato);
+			} catch (e) {
+				alert(e.message);
+			}
+		} else {
+			var telefoneAntigo = $('#txtTelefoneAntigo').val();
+			agenda.atualizar(telefoneAntigo, contato);
+			atualizarContato(telefoneAntigo, contato);
+			$('#btnSubmit').val('Cadastrar');
 		}
+
 
 		$('#txtNome').val('');
 		$('#txtEmail').val('');
 		$('#txtTelefone').val('');
 		$('#txtPagina').val('');
 	});
+
+	var atualizarContato = function(telefoneAntigo, contatoAtualizado){
+		var $caixa = $('#'.concat(telefoneAntigo));
+		
+		var $nome = $caixa.find('.nome');
+		var $email = $caixa.find('.email');
+		var $telefone = $caixa.find('.telefone');
+		var $pagina = $caixa.find('.pagina');
+		var $editar = $caixa.find('.btnEditar');
+		var $deletar = $caixa.find('.btnDeletar');
+
+		$caixa.attr('id', contatoAtualizado.telefone);
+		$nome.text(contatoAtualizado.nome);
+		$email.text(contatoAtualizado.email);
+		$telefone.text(contatoAtualizado.telefone);
+		$pagina.text(contatoAtualizado.pagina);
+		$editar.data('telefone', contatoAtualizado.telefone);
+		$deletar.data('telefone', contatoAtualizado.telefone);
+
+	};
 
 	var criarNovoContato = function (contato) {
 		var cores = [
@@ -91,17 +141,12 @@ $(document).ready(function () {
 			var $btn = $(event.target);
 			var telefone = $btn.data('telefone');
 			var $caixa = $('#'.concat(telefone));
-			if($('#btnSubmit').val() === 'Atualizar'){
-				try {
-					agenda.remover(telefone);
-					$caixa.remove();
-				} catch (e) {
-					alert(e.message);
-				}
-			}else{
-				$('#btnSubmit').val('Cadastrar');
+			try {
+				agenda.remover(telefone);
+				$caixa.remove();
+			} catch (e) {
+				alert(e.message);
 			}
-
 
 		});
 
